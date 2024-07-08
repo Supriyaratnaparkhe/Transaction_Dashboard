@@ -26,9 +26,9 @@ const TransactionsTable = () => {
   }, [month, search, page]);
 
   return (
-    <>
+    <div style={{overflowX:"hidden"}}>
       <div className={styles.container}>
-        <div>
+        <div style={{ width: "90%", height: "100%" }}>
           <div className={styles.title}>Transaction Dashboard</div>
           <div className={styles.selectbar}>
             <div className={styles.search}>
@@ -42,7 +42,7 @@ const TransactionsTable = () => {
               <img
                 src={searchimg}
                 alt="search"
-                style={{ width: "30px", height: "30px" }}
+                style={{ width: "20px", height: "20px" }}
               />
             </div>
             <div className={styles.filter}>
@@ -78,7 +78,7 @@ const TransactionsTable = () => {
           </div>
           <div className={styles.tableContainer}>
             {transactions.length > 0 ? (
-              <table className={styles.quiztable}>
+              <table className={styles.transtable}>
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -88,105 +88,69 @@ const TransactionsTable = () => {
                     <th>Date of Sale</th>
                     <th>Category</th>
                     <th>Sold</th>
+                    <th>Image</th>
                   </tr>
                 </thead>
                 <tbody>
                   {transactions.map((transaction) => (
                     <tr key={transaction._id}>
-                      <td>{transaction._id}</td>
-                      <td>{transaction.title}</td>
-                      <td>{transaction.description}</td>
-                      <td>{transaction.price}</td>
-                      <td>
+                      <td style={{ width: "5%", textAlign: "center" }}>
+                        {transaction.id}
+                      </td>
+                      <td style={{ width: "15%" }}>{transaction.title}</td>
+                      <td style={{ width: "35%" }}>
+                        {transaction.description}
+                      </td>
+                      <td style={{ width: "5%", textAlign: "center" }}>
+                        {transaction.price}
+                      </td>
+                      <td style={{ width: "7%", textAlign: "center" }}>
                         {new Date(transaction.dateOfSale).toLocaleDateString()}
                       </td>
-                      <td>{transaction.category}</td>
-                      <td>{transaction.sold ? "Yes" : "No"}</td>
-                      <td>{transaction.image}</td>
+                      <td style={{ width: "10%", textAlign: "center" }}>
+                        {transaction.category}
+                      </td>
+                      <td style={{ width: "5%", textAlign: "center" }}>
+                        {transaction.sold ? "Yes" : "No"}
+                      </td>
+                      <td style={{ width: "10%", textAlign: "center" }}>
+                        <img
+                          src={transaction.image}
+                          alt="sample"
+                          className={styles.sampleimg}
+                        />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             ) : (
-              <div className={styles.message}>You don't have any Quiz</div>
+              <div className={styles.message}>You don't have any Transaction</div>
             )}
           </div>
-          <div>
+          <div className={styles.footer}>
             <div>Page No:{page} </div>
-            <div></div>
-            <div>Per Page: 5</div>
+            <div className={styles.buttons}>
+              <button onClick={() => setPage(page > 1 ? page - 1 : 1)}>
+                Previous
+              </button>
+              <button onClick={() => setPage(page + 1)}>Next</button>
+            </div>
+            <div>Per Page: 10</div>
+          </div>
+
+          <div className={styles.statistics}>
+            <Statistics month={month} />
+          </div>
+          <div className={styles.barchart}>
+            <BarChartComponent month={month} />
+          </div>
+          <div className={styles.piechart}>
+            <PieChartComponent month={month} />
           </div>
         </div>
-        <div>
-          <div className={styles.statistics}></div>
-          <div className={styles.barchart}></div>
-          <div className={styles.piechart}></div>
-        </div>
       </div>
-
-      {/* <div className={styles.container}>
-      <select value={month} onChange={(e) => setMonth(e.target.value)}>
-        {[
-          "01",
-          "02",
-          "03",
-          "04",
-          "05",
-          "06",
-          "07",
-          "08",
-          "09",
-          "10",
-          "11",
-          "12",
-        ].map((m) => (
-          <option key={m} value={m}>
-            {new Date(0, m - 1).toLocaleString("default", { month: "long" })}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder="Search transactions"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Date of Sale</th>
-            <th>Category</th>
-            <th>Sold</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction._id}>
-              <td>{transaction._id}</td>
-              <td>{transaction.title}</td>
-              <td>{transaction.description}</td>
-              <td>{transaction.price}</td>
-              <td>{new Date(transaction.dateOfSale).toLocaleDateString()}</td>
-              <td>{transaction.category}</td>
-              <td>{transaction.sold ? "Yes" : "No"}</td>
-              <td>{transaction.image}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={() => setPage(page > 1 ? page - 1 : 1)}>Previous</button>
-      <button onClick={() => setPage(page + 1)}>Next</button>
-      <div>
-        <Statistics month={month} />
-        <BarChartComponent month={month} />
-        <PieChartComponent month={month} />
-      </div>
-    </div> */}
-    </>
+    </div>
   );
 };
 
