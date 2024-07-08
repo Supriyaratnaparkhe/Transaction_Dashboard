@@ -36,7 +36,7 @@ router.get('/init', async (req, res) => {
 
 // List Transactions with Search and Pagination
 router.get('/transactions', async (req, res) => {
-    const { month, search, page = 1, perPage = 10 } = req.query;
+    const { month, search, page = 1, perPage = 5 } = req.query;
     const monthPipeline = getMonthFilterPipeline(month);
 
     let matchStage = {};
