@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styles from './Statistics.module.css'
 
 const Statistics = ({ month }) => {
   const [statistics, setStatistics] = useState({});
@@ -15,7 +16,7 @@ const Statistics = ({ month }) => {
   }, [month]);
 
   return (
-    <div>
+    <div className={styles.card}>
       <h2>
         Statistics -{" "}
         {new Date(0, month - 1).toLocaleString("default", { month: "long" })}
