@@ -25,7 +25,7 @@ const BarChartComponent = ({ month }) => {
   }, [month]);
 
   return (
-    <div>
+    <div style={{marginTop:"50px",width:"75%"}}>
       <h2>
         Bar Chart -{" "}
         {new Date(0, month - 1).toLocaleString("default", { month: "long" })}
