@@ -26,7 +26,7 @@ const TransactionsTable = () => {
   }, [month, search, page]);
 
   return (
-    <div style={{overflowX:"hidden"}}>
+    <>
       <div className={styles.container}>
         <div style={{ width: "90%", height: "100%" }}>
           <div className={styles.title}>Transaction Dashboard</div>
@@ -136,7 +136,7 @@ const TransactionsTable = () => {
               </button>
               <button onClick={() => setPage(page + 1)}>Next</button>
             </div>
-            <div>Per Page: 10</div>
+            <div>Per Page: 5</div>
           </div>
 
           <div className={styles.statistics}>
@@ -150,7 +150,7 @@ const TransactionsTable = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
