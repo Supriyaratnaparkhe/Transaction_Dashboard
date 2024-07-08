@@ -43,8 +43,10 @@ router.get('/transactions', async (req, res) => {
     if (search) {
         const regex = new RegExp(search, 'i');
         matchStage.$or = [
+            { id: regex },
             { title: regex },
             { description: regex },
+            { image: regex },
             { price: { $regex: regex } }
         ];
     }
