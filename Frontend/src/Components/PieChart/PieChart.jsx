@@ -29,7 +29,7 @@ const PieChartComponent = ({ month }) => {
   }, [month]);
 
   return (
-    <div>
+    <div style={{marginTop:"30px",width:"70%"}}>
       <h2>
         Pie Chart -{" "}
         {new Date(0, month - 1).toLocaleString("default", { month: "long" })}
