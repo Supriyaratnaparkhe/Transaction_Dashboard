@@ -1,73 +1,139 @@
-.container{
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    width:100vw;
-    height: 100vh;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }
-.title{
-    width:100%;
-    font-family: Roboto;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 52px;
-    letter-spacing: 0em;
-    color: #2e0052;
-    text-align: center;
+.title {
+  width: 100%;
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 52px;
+  letter-spacing: 0em;
+  color: #2e0052;
+  text-align: center;
 }
-.selectbar{
-    display: flex;
-    width:100%;
+.selectbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .search input {
-    width: 60%;
-    height: 5vh;
-    border-radius: 48px 48px 48px 48px;
-    border: 1px solid #c8c8c8;  
-    padding-left: 30px;
-    font-family: Roboto;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 39.31px;
-  }
-  .search {
-    position: relative;
-    margin-top: 1.5vh;
-  }
-  .searchbar::placeholder {
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 39.31px;
-  }
-  .search img {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    left: 1%;
-    top: 5%;
-  }
-  
-  input:focus {
-    outline: none;
-  }
-  select:focus {
-    outline: none;
-  }
-  .selectedoption {
-    width: 150px;
-    height: 30px;
-    background: #ccd30c;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 27.45px;
-    border-radius: 20px 20px 20px 20px;
-    border: none;
-    padding: 5px;
-  }
-  .filter {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
+  width: 70%;
+  height: 5vh;
+  border-radius: 48px 48px 48px 48px;
+  border: 1px solid #c8c8c8;
+  padding-left: 30px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 39.31px;
+}
+.search {
+  position: relative;
+  margin-top: 1.5vh;
+}
+.searchbar::placeholder {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 39.31px;
+}
+.search img {
+  position: absolute;
+  left: 3%;
+  top: 22%;
+}
+
+input:focus {
+  outline: none;
+}
+select:focus {
+  outline: none;
+}
+.selectedoption {
+  width: 150px;
+  height: 30px;
+  background: #0f1f61;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 27.45px;
+  border-radius: 20px 20px 20px 20px;
+  border: none;
+  padding: 5px;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.tableContainer {
+  margin-top: 20px;
+}
+.transtable {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+.transtable th {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.transtable td {
+  color: #5f5d5d;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.transtable tr:nth-child(even) {
+  background: #b3c4ff;
+}
+
+.transtable th {
+  background: #5076ff;
+}
+
+.sampleimg {
+  width: 40px;
+  height: 40px;
+}
+.footer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #5f5d5d;
+  justify-content: space-around;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 39.31px;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+.buttons button {
+  background: none;
+  width: 70px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid #04aa6d;
+  cursor: pointer;
+}
